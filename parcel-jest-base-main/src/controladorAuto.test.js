@@ -20,6 +20,11 @@ describe('Controlar el auto', () => {
     it('Se ingresa la posición inicial del auto en formato "matriz/X, Y, D", donde "D" es la orientación', () => {
         const control = new controlAuto();
         expect(control.mover_auto("5,5/1,2N").toString("{5,5}, {1,2 N}"));
-      });
+    });
+    
+    it('Se ingresa los comandos como una cadena de caracteres que consisten en las letras "I" (Izquierda), "D" (Derecha) y "A" (Avanzar)', () => {
+        const control = new controlAuto();
+        expect(control.mover_auto("5,5/1,2N/IAIAIAIAA").toString("{5,5}, {1,2 N}, {IAIAIAIAA}"));
+    });
 
 })
