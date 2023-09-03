@@ -17,5 +17,9 @@ describe('Controlar el auto', () => {
         expect(control.obtener_matriz("1,3").toString("[1,3]"))
     })
 
+    it('Se ingresa la posición inicial del auto en formato "matriz/X, Y, D", donde "D" es la orientación', () => {
+        const control = new controlAuto();
+        expect(control.mover_auto("5,5/1,2N").toString("{5,5}, {1,2 N}"));
+      });
 
 })
