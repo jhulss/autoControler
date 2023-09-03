@@ -4,8 +4,18 @@ class controlAuto{
         if (cadena === "" || cadena === " "){
             return "Cadena vacia";
         }
-        return cadena;
+        else{
+            return cadena;
+        }
+        
     }
+
+    matriz(cadena)
+    {
+        let matriz = cadena.split(",")
+        return toString(matriz);    
+    }
+    
 }
 
 export default controlAuto;
