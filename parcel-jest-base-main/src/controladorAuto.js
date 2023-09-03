@@ -6,6 +6,7 @@ class controlAuto{
     let matriz;
     let posicion;
     let direccion;
+    let movimentos;
 
     if (comandos === "" || comandos === " "){
         return "Cadena vacia";
@@ -14,11 +15,19 @@ class controlAuto{
         return `${matriz}`;
     }
 
+    else if (datos.length < 3){
+        matriz = this.obtener_matriz(datos[0])
+        posicion = this.obtener_posicion(datos[1])
+        direccion = this.obtener_direccion(datos[1])
+        return `${matriz},${posicion} ${direccion}`;
+    }
+
     matriz = this.obtener_matriz(datos[0])
     posicion = this.obtener_posicion(datos[1])
     direccion = this.obtener_direccion(datos[1])
+    movimentos = datos[2]
 
-    return `${matriz},${posicion} ${direccion}`;
+    return `${matriz},${posicion} ${direccion}, ${movimentos}`;
         
     }
 
