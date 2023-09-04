@@ -41,5 +41,10 @@ describe('Controlar el auto', () => {
         const control = new controlAuto();
         expect(control.mover_auto("5,5/2,2N/ADAAD").toString("4,3 N"));
       });
+
+      it('La aplicación debe devolver la posición final del auto después de ejecutar los comandos', () => {
+        const control = new controlAuto();
+        expect(control.mover_auto("5,5/2,2N/ADA").toString("3,3 N"));
+      });
       
 })
