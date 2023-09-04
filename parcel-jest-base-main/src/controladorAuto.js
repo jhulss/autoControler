@@ -34,8 +34,13 @@ class controlAuto{
     direccion = this.obtener_direccion(datos[1])
     movimentos = datos[2]
 
+    if (this.validar_espacioJuego(matriz) === false){
+      return 'Matriz invalida'
+    }
+
     let [x, y] = posicion;
     let [dx, dy] = orientaciones[direccion];
+
     for (const instruccion of movimentos) {
       if (instruccion === "I") {
         [dx, dy] = [-dy, dx];
@@ -51,9 +56,8 @@ class controlAuto{
       }
     }
 
-    return`${x},${y} ${direccion}`;
-
-    //return `${matriz},${posicion} ${direccion}, ${movimentos}`;
+    const posicion_final = `${x},${y} ${direccion}`
+    return this.mostrar_datos(matriz,posicion,direccion,movimentos,posicion_final);
         
     }
 
@@ -76,9 +80,22 @@ class controlAuto{
         return direccion;
     }
 
-
-
-
+    mostrar_datos(matriz,posicion,direccion,movimentos,posicion_final){
+      return `Posicion inicial: ${posicion} ${direccion} <br />
+      Comandos: <br /> 
+        ${matriz} <br />
+        ${posicion} ${direccion} <br />
+        ${movimentos} <br />
+    Posicion final: ${posicion_final}`
+    }
+    
+    validar_espacioJuego(matriz){
+      let validacion = true
+      if (matriz[0] <= 0 && matriz[1] <= 0){
+        validacion = false;
+      }
+      return validacion;
+    }
     
 }
 
